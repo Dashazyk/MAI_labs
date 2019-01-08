@@ -1,27 +1,23 @@
 #include <cstdlib>
+#include <iostream>
+
 #include "Triangle.h"
-#include "Quadrate.h"
-#include "Rectangle.h"
+#include "TListItem.h"
+#include "TList.h"
 
+// Simple List on pointers
 int main(int argc, char** argv) {
-
-    Figure *ptr = new Triangle(std::cin);
-    ptr->Print();
-    std::cout << "Rectangle square: ";
-    std::cout << ptr->Square() << std::endl;
-    delete ptr;
+    TList list;
+    Triangle t(5, 6, 7);
+    Triangle y(9, 9, 9);
+    Triangle z(6, 6, 6);
     
-    Figure *qdr = new Quadrate(std::cin);
-    qdr->Print();
-    std::cout << "Rectangle square: ";
-    std::cout << qdr->Square() << std::endl;
-    delete qdr;
+    list.addR(t);
+	list.addR(y);
+    list.addR(z);
     
-    Figure *rtg = new Rectangle(std::cin);
-    rtg->Print();
-    std::cout << "Rectangle square: ";
-    std::cout << rtg->Square() << std::endl;
-    delete rtg;
+    std::cout << list << std::endl;
+    
     
     return 0;
 }
