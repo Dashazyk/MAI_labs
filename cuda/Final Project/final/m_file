@@ -1,0 +1,13 @@
+SRC_DIR=./src
+RESULT=course
+SRC_FILES=$(wildcard $(SRC_DIR)/*.c*)
+
+check: $(SRC_FILES)
+	nvcc -std=c++11 -rdc=true -DGRID_SIZE=64 -DBLOCK_SIZE=32 $^ -o $(RESULT)
+
+
+$(RESULT): $(SRC_FILES)
+	nvcc -std=c++11 -rdc=true -DGRID_SIZE=64 -DBLOCK_SIZE=16 $^ -o $(RESULT)
+
+clean:
+	rm $(RESULT)
